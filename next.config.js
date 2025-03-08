@@ -1,10 +1,17 @@
 /** @type {import('next').NextConfig} */
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+});
 
 const nextConfig = {
     images: {
         domains: ['images.unsplash.com'],
-    }
-};
+        unoptimized: process.env.NODE_ENV === 'development'
+    },
+    compress: true,
+    poweredByHeader: false,
+    reactStrictMode: true,
+    swcMinify: true
 
 if (process.env.NEXT_PUBLIC_TEMPO) {
     nextConfig["experimental"] = {
@@ -17,4 +24,4 @@ if (process.env.NEXT_PUBLIC_TEMPO) {
     }
 }
 
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);

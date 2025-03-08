@@ -11,6 +11,36 @@ export const metadata: Metadata = {
   title: "MedXRay AI - Chest X-Ray Analysis & Reporting",
   description:
     "AI-powered chest X-ray analysis tool for medical professionals, providing instant detection of abnormalities with detailed classification results.",
+  metadataBase: new URL(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000",
+  ),
+  openGraph: {
+    title: "MedXRay AI - Chest X-Ray Analysis & Reporting",
+    description:
+      "AI-powered chest X-ray analysis tool for medical professionals",
+    url: "https://medxray-ai.vercel.app",
+    siteName: "MedXRay AI",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=630&fit=crop",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MedXRay AI - Chest X-Ray Analysis & Reporting",
+    description:
+      "AI-powered chest X-ray analysis tool for medical professionals",
+    images: [
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=630&fit=crop",
+    ],
+  },
 };
 
 export default function RootLayout({
