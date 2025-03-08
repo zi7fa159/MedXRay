@@ -11,11 +11,7 @@ export const metadata: Metadata = {
   title: "MedXRay AI - Chest X-Ray Analysis & Reporting",
   description:
     "AI-powered chest X-ray analysis tool for medical professionals, providing instant detection of abnormalities with detailed classification results.",
-  metadataBase: new URL(
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000",
-  ),
+  metadataBase: new URL("https://medxray-ai.vercel.app"),
   openGraph: {
     title: "MedXRay AI - Chest X-Ray Analysis & Reporting",
     description:

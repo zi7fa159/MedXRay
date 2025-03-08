@@ -18,9 +18,7 @@ export default function VoiceDictation({
 }: VoiceDictationProps) {
   const [text, setText] = useState(initialText);
   const [isListening, setIsListening] = useState(false);
-  const [recognition, setRecognition] = useState<SpeechRecognition | null>(
-    null,
-  );
+  const [recognition, setRecognition] = useState<any | null>(null);
   const [supported, setSupported] = useState(true);
 
   // Initialize speech recognition
@@ -28,7 +26,8 @@ export default function VoiceDictation({
     if (typeof window !== "undefined") {
       // Check if browser supports speech recognition
       const SpeechRecognition =
-        window.SpeechRecognition || window.webkitSpeechRecognition;
+        (window as any).SpeechRecognition ||
+        (window as any).webkitSpeechRecognition;
 
       if (SpeechRecognition) {
         const recognitionInstance = new SpeechRecognition();
